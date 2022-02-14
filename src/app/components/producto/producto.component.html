@@ -1,1 +1,22 @@
-<p>producto works!</p>
+<a  [routerLink]="['/productoform']"
+class="btn btn-success">Nuevo</a>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Foto</th>
+    </tr>
+    <tr *ngFor="let item of lista">
+        <td>{{item.nombre}}</td>
+        <td>{{item.descripcion}}</td>
+        <td>{{item.precio}}</td>
+        <td>{{item.foto}}</td>
+        <td>
+            <a href="">
+            <i class="bi bi-pencil-square">s</i>
+            </a>
+        </td>
+    </tr>
+</table> 

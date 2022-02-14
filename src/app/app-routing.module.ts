@@ -6,22 +6,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AdminLayoutmodule } from './layout/admin-layout/admin-layout.module';
 
 const routes: Routes = [
- 
-  {
+   {
     path:'',
     component:AdminLayoutComponent,
     children:[
       {
         path:'',
         loadChildren:
-                ()=>AdminLayoutmodule //import('./layout/admin-layout/admin-layout.module').then(m=>m.AdminLayoutmodule)
+                ()=>
+                AdminLayoutmodule 
+                //import('./layout/admin-layout/admin-layout.module').then(m=>m.AdminLayoutmodule)
       }
     ]
-  }/*,
-  /*{
-    path:'**',
-   // component:
-  }*/
+  }
 ];
 
 @NgModule({
@@ -29,11 +26,16 @@ const routes: Routes = [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(
-      routes,
-      {useHash:true}
-      ),
-  
+      routes,{useHash:true}
+      )
   ],
-  exports: []
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+/*******************************
+ * realizar un crud con angular y firebase
+ * en un nuevo proyecto
+ * 
+ */
