@@ -12,7 +12,12 @@ const AdminLayoutRoutes:Routes=[
     {
         path:'productoform',
         component:ProductonuevoComponent
+    },
+    {
+        path:'productoform/:id',
+        component:ProductonuevoComponent
     }
+
 ]
 @NgModule({
     imports: [RouterModule.forChild(AdminLayoutRoutes)],
