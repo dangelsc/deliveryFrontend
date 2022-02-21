@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ProductoComponent } from "src/app/components/producto/producto.component";
 import {  RouterModule } from '@angular/router';
 import { ProductonuevoComponent } from "src/app/components/producto/productonuevo/productonuevo.component";
+import { PedidoComponent } from "src/app/components/pedido/pedido.component";
 //export 
 const AdminLayoutRoutes:Routes=[
     {
@@ -16,6 +17,10 @@ const AdminLayoutRoutes:Routes=[
     {
         path:'productoform/:id',
         component:ProductonuevoComponent
+    },
+    {
+        path:'pedidos',
+        component:PedidoComponent
     }
 
 ]
