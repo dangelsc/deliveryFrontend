@@ -5,17 +5,34 @@ on :
     branches:
       - master
 jobs:
-  crear-zip:
+  crear-atefacto-alfa:
     runs-on: ubuntu-lastet
     
     steps:
-      -name: step1: 
+      - name: step1: 
         run:  mkdir alfa
-      -name: step 2:
+      - name: step 2:
         run: |
           cd alfa
           echo 'hola mundo' > algo.html
           cd ..
-       -name: step3
+       - name: step3
+          run: zip -r alfa.zip alfa
+       - name: step4
         ls -la
+   crear-atefacto-beta:
+    runs-on: ubuntu-lastet
+    
+    steps:
+      - name: step1: 
+        run:  mkdir beta
+      - name: step 2:
+        run: |
+          cd alfa
+          echo 'hola beta' > algo.html
+          cd ..
+       - name: step3
+          run: zip -r beta.zip beta
+       - name: step4
+          ls -la
         
