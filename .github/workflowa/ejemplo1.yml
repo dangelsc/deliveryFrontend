@@ -17,5 +17,5 @@ jobs:
           echo 'hola mundo' > algo.html
           cd ..
        -name: step3
-        ls -l
+        ls -la
         
