@@ -1,2 +1,21 @@
 name : primer pasos
 
+on :
+  push:
+    branches:
+      - master
+jobs:
+  crear-zip:
+    runs-on: ubuntu-lastet
+    
+    steps:
+      -name: step1: 
+        run:  mkdir alfa
+      -name: step 2:
+        run: |
+          cd alfa
+          echo 'hola mundo' > algo.html
+          cd ..
+       -name: step3
+        ls -l
+        
