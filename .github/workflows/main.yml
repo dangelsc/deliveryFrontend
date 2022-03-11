@@ -5,7 +5,7 @@ on :
     branches:
       - master
 jobs:
-  crear-atefacto-alfa11:
+  crear-atefacto-alfa1s1:
     runs-on: ubuntu-latest
     
     steps:
