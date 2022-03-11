@@ -5,7 +5,7 @@ on :
     branches:
       - master
 jobs:
-  crear-atefacto-alfa:
+  crear-atefacto-alfa11:
     runs-on: ubuntu-lastet
     
     steps:
