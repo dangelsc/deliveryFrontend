@@ -6,7 +6,7 @@ on :
       - master
 jobs:
   crear-atefacto-alfa11:
-    runs-on: ubuntu-lastet
+    runs-on: ubuntu-latest
     
     steps:
       - name: step1
@@ -21,7 +21,7 @@ jobs:
       - name: step4
           ls -la
   crear-atefacto-beta:
-    runs-on: ubuntu-lastet
+    runs-on: ubuntu-latest
     
     steps:
       - name: step1
