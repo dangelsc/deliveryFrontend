@@ -8,7 +8,7 @@ jobs:
   crear-atefacto-alfa1s1:
     runs-on: ubuntu-latest
     steps:
-      - name: step1
+      - name: step 1
         run:  mkdir alfa
       - name: step 2
         run: |
