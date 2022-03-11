@@ -1,5 +1,5 @@
 name : primer pasos
-
+  
 on :
   push:
     branches:
@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step 1
+        uses: actions/checkout@v1
+      - name: stpe 1.2 
         run: mkdir alfa
       - name: step 2
         run: |
