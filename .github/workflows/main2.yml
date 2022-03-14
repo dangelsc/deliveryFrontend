@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        maquina: [ 6, 8, 10]
     steps:
-      - uses: actions/setup-node@v2
-        with: 
-          run: dmidecode ${{ matrix.node }}
+     - name: stpe 1
+       run: dmidecode ${{ matrix.node }}
