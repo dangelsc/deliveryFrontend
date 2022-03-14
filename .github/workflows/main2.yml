@@ -11,5 +11,5 @@ jobs:
         node: [6, 8, 10]
     steps:
       - uses: actions/setup-node@v2
-        with:
-          sudo dmidecode: ${{ matrix.node }}
+        with: 
+          dmidecode: ${{ matrix.node }}
