@@ -3,7 +3,7 @@ name : primer pasos
 on :
   push:
     branches:
-      - master
+      - master22
 jobs:
   crear-atefacto-alfa1s1:
     runs-on: ubuntu-latest
