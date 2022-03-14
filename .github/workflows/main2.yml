@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with: 
-          dmidecode: ${{ matrix.node }}
+          run: dmidecode ${{ matrix.node }}
