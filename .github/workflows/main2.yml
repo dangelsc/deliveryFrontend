@@ -11,4 +11,4 @@ jobs:
         maquina: [ 6, 8, 10]
     steps:
      - name: stpe 1
-       run: sudo hostname ${{ matrix.node }}
+       run: sudo hostname 
