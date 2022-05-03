@@ -35,4 +35,4 @@ jobs:
           path: ~/artefacto
       
       - name: step 7 - Verificar la descarga
-        run: la -la ~/artefacto
+        run: ls -la ~/artefacto
