@@ -26,7 +26,7 @@ jobs:
       - name: Ejecucion de la compilacion
         run: sh ./buil_server.sh
   test:
-    needs: build02
+    needs: build01
     runs-on: ubuntu-latest
     steps:
       - name: Check out del repositorio
