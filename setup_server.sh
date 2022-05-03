@@ -1,4 +1,3 @@
-echo "inincio"
-echo "ya :$(date+ "%T")"
+echo "iniio $(date + "%T")"
 sleep 3s
-echo "fin :$(date+ "%T")"
+echo "iniio $(date + "%T")"
