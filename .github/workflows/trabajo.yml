@@ -25,4 +25,4 @@ jobs:
       - name: Check out del repositorio
         uses: actions/checkout@v2
       - name: ejecucion de las pruebas
-          run: sh ./test_server.sh
+        run: sh ./test_server.sh
