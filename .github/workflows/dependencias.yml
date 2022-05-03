@@ -1,0 +1,30 @@
+name: trabajos independientes
+on:
+  push:
+    branches:
+      - master
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+        
+      - name: ejecucion de la configuracion
+        run: sh ./setup_server.sh
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la compilacion
+        run: sh ./buil_server.sh
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out del repositorio
+        uses: actions/checkout@v2
+      - name: ejecucion de las pruebas
+        run: sh ./test_server.sh
