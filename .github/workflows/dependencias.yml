@@ -12,7 +12,15 @@ jobs:
         
       - name: ejecucion de la configuracion
         run: sh ./setup_server.sh
-  build:
+  build01:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+      - name: Ejecucion de la compilacion
+        run: sh ./buil_server.sh
+  build02:
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +29,7 @@ jobs:
       - name: Ejecucion de la compilacion
         run: sh ./buil_server.sh
   test:
-    needs: build
+    needs: [build01, build02]
     runs-on: ubuntu-latest
     steps:
       - name: Check out del repositorio
