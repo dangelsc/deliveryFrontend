@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 name: Reautilizar action zip cambio
 on:
   push:
@@ -34,3 +22,8 @@ jobs:
           dest: alfa.zip
       - name: step 4 - verificar zip
         run: ls -la
+      - name: step 5 - verificar
+        uses: actions/upload-artifact@v3
+        with:
+          name: Artefacto_alfa
+          path: alfa.zip
