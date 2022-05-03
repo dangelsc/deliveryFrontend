@@ -1,0 +1,17 @@
+name: trabajos matrix 2
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        cc: [gcc, clang]
+    steps:
+      - name: Install dependecias
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ${{matrix.cc}}
