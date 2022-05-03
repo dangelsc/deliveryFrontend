@@ -31,7 +31,7 @@ jobs:
       - name: step 6 - download
         uses: actions/download-artifact@v3
         with:
-          name: Artefacto_ALFA
+          name: Artefacto_alfa
           path: ~/artefacto
       
       - name: step 7 - Verificar la descarga
