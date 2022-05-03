@@ -2,7 +2,7 @@ name: ejecuta contenedor
 on:
   push:
     branches:
-      - master
+      - master2
 jobs:
   crear-acceder-contenedor:
     runs-on: ubuntu-latest
