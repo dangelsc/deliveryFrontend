@@ -1,0 +1,12 @@
+name: ejecuta contenedor
+on:
+  push:
+    branches:
+      - master
+jobs:
+  setup:
+    runs-on: self-hosted
+
+    steps:
+      - name: Informacion nodo
+        run: ip add
