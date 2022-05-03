@@ -1,0 +1,26 @@
+name: Reautilizar action zip
+on:
+  push:
+    branches:
+      - main
+jobs:
+  crear-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1 - crear directorio
+        run: mkdir alfa
+        
+      - name: step 2 - adicionar archivos
+        run: |
+          cd alfa
+          echo 'hola alfa 1' > alfa01.html
+          echo 'este es el 2' > alfa02.html
+          cd ..
+      - uses: papeloto/action-zip@v1
+        with:
+          files: alfa/
+          dest: alfa.zip
+      - name: step 4 - verificar zip
+        run: ls -la
+        
+       
