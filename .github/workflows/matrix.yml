@@ -2,7 +2,7 @@ name: trabajos con matrix
 on:
   push:
     branches:
-      - master
+      - master12
 jobs:
   setup:
     runs-on: ubuntu-latest
