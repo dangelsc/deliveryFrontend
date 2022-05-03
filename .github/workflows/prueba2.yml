@@ -14,7 +14,7 @@ name: Reautilizar action zip cambio
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   crear-zip:
     runs-on: ubuntu-latest
