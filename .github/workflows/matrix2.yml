@@ -1,4 +1,4 @@
-name: trabajos matrix 2
+name: trabajos matrix 3
 
 on:
   push:
@@ -10,8 +10,11 @@ jobs:
     strategy:
       matrix:
         cc: [gcc, clang]
+        curl: [openssl, gnutls, nss]
     steps:
       - name: Install dependecias
         run: |
           sudo apt-get update
-          sudo apt-get install -y ${{matrix.cc}}
+          sudo apt-get install -y ${{matrix.cc}} \
+                                  libcur14-${{ matrix.curl }}-dev
+
