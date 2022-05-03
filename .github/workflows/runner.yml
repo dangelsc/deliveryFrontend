@@ -6,7 +6,20 @@ on:
 jobs:
   setup:
     runs-on: self-hosted
-
+    services:
+      portal-oficina01:
+        image: httpd:latest
+        ports:
+          - 8082:80
+      portal-oficina2:
+        image: nginx:latest
+        ports:
+          - 8081:80
     steps:
+      - name: Acceder al portal 1
+        run: curl http://localhost:8082
+      - name: Acceder al portal 2
+        run: curl http://localhost:8081
       - name: Informacion nodo
         run: ip add
+    
