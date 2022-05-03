@@ -3,7 +3,7 @@ name: trabajos matrix 3
 on:
   push:
     branches:
-      - master
+      - master2
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
       - name: Install dependecias
         run: |
           sudo apt-get update
-          sudo apt-get install -y ${{matrix.cc}} \
-          libcur14-${{matrix.curl}}-dev \
-          ${{matrix.kerberos}}-dev |
+          sudo apt-get install -y ${{ matrix.cc }} \
+          libcur14-${{ matrix.curl }}-dev \
+          ${{ matrix.kerberos }}-dev |
 
