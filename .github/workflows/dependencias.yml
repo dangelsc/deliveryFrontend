@@ -2,7 +2,7 @@ name: trabajos independientes
 on:
   push:
     branches:
-      - master
+      - master2
 jobs:
   setup:
     runs-on: ubuntu-latest
