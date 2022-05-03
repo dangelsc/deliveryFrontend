@@ -22,7 +22,7 @@ jobs:
       - name: check out del repositorio
         uses: actions/checkout@v2
       - name: depende sistema operativo
-        run: echo "este proceso se esta ejecutando en el sis ope: ${{ runner.os }}"
+        run: echo "este proceso se esta ejecutando en el sis ope:${{ runner.os }}"
       - name: Ejecucion de la compilacion
         run: sh ./buil_server.sh
   test:
