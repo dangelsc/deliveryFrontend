@@ -1,0 +1,22 @@
+name: ejecuta contenedor
+on:
+  push:
+    branches:
+      - master
+jobs:
+  crear-acceder-contenedor:
+    runs-on: ubuntu-latest
+    services:
+      portal-oficina01:
+        image: httpd:latest
+        ports:
+          - 8080:80
+      portal-oficina2: 
+        image: nginx:latest
+        ports:
+          - 8081:80
+    steps:
+      - name: Acceder al portal 1
+        run: curl http://localhost:8080
+      - name: Acceder al portal 2
+        run: curl http://localhost:8081
