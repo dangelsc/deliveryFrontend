@@ -36,4 +36,4 @@ jobs:
           path: preg1.zip
           retention days: 15
       - name: step 7 - Verificar la descarga
-        run: ls -la ~/preg1.zip
+        run: ls -la 
