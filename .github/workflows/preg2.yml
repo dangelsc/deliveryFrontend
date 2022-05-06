@@ -17,7 +17,8 @@ jobs:
         image: httpd:latest
         ports:
           - 8082:80
-        volumes: ~/:/usr/local/apache2/htdocs/
+        volumes: 
+          - ~/:/usr/local/apache2/htdocs/
 
     steps:
       - name: algo de html
