@@ -2,7 +2,7 @@ name: ejecuta contenedor
 on:
   push:
     branches:
-      - master
+      - master22
 jobs:
   setup:
     runs-on: self-hosted
