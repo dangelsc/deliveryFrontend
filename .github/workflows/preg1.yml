@@ -8,7 +8,7 @@ name: pregunta 1
 on:
   push:
     branches:
-      - master
+      - master1
 jobs:
   crear-zip:
     runs-on: ubuntu-latest
