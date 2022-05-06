@@ -1,0 +1,39 @@
+#1. Realizar un workflow que permita:
+#Crear 5 archivos
+#Comprimir los archivos en 1 archivo resultanre (artefacto) y ponerlo a disposición
+#Comprobar la posibilidad de poder descargarlo
+
+
+name: pregunta 1
+on:
+  push:
+    branches:
+      - master
+jobs:
+  crear-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1 - crear directorio
+        run: mkdir preg1
+
+      - name: step 2 - crear archivos
+        run: |
+          cd preg1
+          echo 'hola 1 ' > preg01.txt
+          echo 'hola 2 ' > preg02.txt
+          echo 'hola 3 ' > preg03.txt
+          echo 'hola 4 ' > preg04.txt
+          echo 'hola 5 ' > preg05.txt
+          cd ..
+      - uses: papeloto/action-zip@v1
+        with:
+          files: preg1/
+          dest: preg1.zip
+      - name: step 3 - download
+        uses: actions/download-artifact@v3
+        with:
+          name: Artefacto_preg1
+          path: ~/artefacto
+
+      - name: step 7 - Verificar la descarga
+        run: ls -la ~/artefacto
