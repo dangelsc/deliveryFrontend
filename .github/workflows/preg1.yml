@@ -29,11 +29,11 @@ jobs:
         with:
           files: preg1/
           dest: preg1.zip
-      - name: step 3 - download
-        uses: actions/download-artifact@v3
+      - name: step 5 - upload
+        uses: actions/upload-artifact@v3
         with:
           name: Artefacto_preg1
-          path: ~/artefacto
-
+          path: preg1.zip
+          retention days: 15
       - name: step 7 - Verificar la descarga
-        run: ls -la ~/artefacto
+        run: ls -la ~/preg.zip
