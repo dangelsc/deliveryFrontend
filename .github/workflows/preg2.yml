@@ -22,7 +22,9 @@ jobs:
 
     steps:
       - name: algo de html
-        run: echo "hola mundo" > index.html
+        run: |
+          cd  /home
+          echo "hola mundo" > index.html
       - name: Acceder al portal 1
         run: ls -la ~/
 
