@@ -10,7 +10,28 @@ on:
     branches:
       - master
 jobs:
-  Configuracion:
+  configuracion:
+    runs-on: ubuntu-latest
+    services:
+      portal-oficina01:
+        image: httpd:latest
+        ports:
+          - 8082:80
+        volumes: 
+          - /home/runner:/usr/local/apache2/htdocs/
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+        
+      - name: ejecucion de la configuracion
+        run: sh ./setup_server.sh > /home/runner/configuracion.html 
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: configuracion
+          path: /home/runner/configuracion.html
+
+  Configuracion2:
     runs-on: ubuntu-latest
     services:
       portal-oficina01:
@@ -26,7 +47,7 @@ jobs:
           cd  /home/runner
           echo "hola mundo" > index.html
       - name: Acceder al portal 1
-        run: ls -la ~/
+        run: ls -la /home/runner
 
       - name: Acceder al portal 2
         run: curl http://localhost:8082
