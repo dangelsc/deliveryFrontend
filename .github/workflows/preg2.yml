@@ -69,12 +69,12 @@ jobs:
           name: Artefacto_informe
           path: construccion.zip
       - name: descargar construccion
-        uses: actions/donwload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: Artefacto_construccion
           path: construccion.zip
       - name: descargar prueba
-        uses: actions/donwload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: Artefacto_prueba
           path: prueba.zip
