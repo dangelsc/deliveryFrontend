@@ -60,7 +60,7 @@ jobs:
           name: construccion3
           path: /home/runner/construccion3.html
   prueba:
-    needs: construccion
+    needs: [construccion1,construccion2,construccion3]
     runs-on: ubuntu-latest
     steps:
       - name: check out del repositorio
