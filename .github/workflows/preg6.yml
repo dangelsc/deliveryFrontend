@@ -1,0 +1,92 @@
+# 6. Realizar un workflow que permita:
+#Realizar el ejercicio 2 en runners self-hosted.
+
+name: pregunta 2
+on:
+  push:
+    branches:
+      - master
+jobs:
+  configuracion:
+    runs-on: self-hosted
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+
+      - name: ejecucion de la configuracion
+        run: sh ./setup_server.sh > /home/runner/configuracion.html
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: configuracion
+          path: /home/runner/configuracion.html
+  construccion:
+    needs: configuracion
+    runs-on: self-hosted
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+
+      - name: ejecucion de la configuracion
+        run: sh ./buil_server.sh > /home/runner/construccion.html
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: construccion
+          path: /home/runner/construccion.html
+  prueba:
+    needs: construccion
+    runs-on: self-hosted
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+
+      - name: ejecucion de la configuracion
+        run: sh ./test_server.sh > /home/runner/prueba.html
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: prueba
+          path: /home/runner/prueba.html
+  publicar:
+    needs: prueba
+    runs-on: self-hosted
+    services:
+      portal-oficina01:
+        image: httpd:latest
+        ports:
+          - 8082:80
+        volumes:
+          - /home/runner:/usr/local/apache2/htdocs/
+
+    steps:
+      - name: descargar configuracion
+        uses: actions/download-artifact@v3
+        with:
+          name: configuracion
+          path: /home/runner/configuracion
+      - name: descargar construccion
+        uses: actions/download-artifact@v3
+        with:
+          name: construccion
+          path: /home/runner/construccion
+      - name: descargar prueba
+        uses: actions/download-artifact@v3
+        with:
+          name: prueba
+          path: /home/runner/prueba
+
+      - name: verificar
+        run: |
+          mv /home/runner/configuracion/configuracion.html /home/runner/configuracion.html
+          mv /home/runner/construccion/construccion.html /home/runner/construccion.html
+          mv /home/runner/prueba/prueba.html /home/runner/prueba.html
+          echo "<h1>configuracion </h1><iframe src=configuracion.html><h1>construccion </h1><iframe src=construccion.html> <h1>prueba </h1><iframe src=prueba.html>"> /home/runner/index.html
+
+      - name: Acceder al portal 1
+        run: ls -la /home/runner
+
+      - name: Acceder al portal 2
+        run: curl http://localhost:8082
+      - name: Informacion nodo
+        run: ip add
