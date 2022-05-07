@@ -64,7 +64,7 @@ jobs:
 
     steps:
       - name: descargar configuracion
-        uses: actions/donwload-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: Artefacto_informe
           path: construccion.zip
