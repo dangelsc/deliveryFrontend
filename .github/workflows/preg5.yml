@@ -10,11 +10,12 @@ jobs:
       matrix:
         cc: [run1, run2, run3]
     steps:
-      - name: trabajando
-        run: |
-          free -h
-          mstat -s -S M
-          ip ad
+      - name: Memoria
+        run: free -h
+      - name: carac2
+        run: mstat -s -S M
+      - name: carac3
+        run: ip ad
 
           
         
