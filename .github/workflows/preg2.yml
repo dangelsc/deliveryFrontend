@@ -66,17 +66,17 @@ jobs:
       - name: descargar configuracion
         uses: actions/download-artifact@v3
         with:
-          name: Artefacto_informe
+          name: configuracion
           path: configuracion.zip
       - name: descargar construccion
         uses: actions/download-artifact@v3
         with:
-          name: Artefacto_construccion
+          name: construccion
           path: construccion.zip
       - name: descargar prueba
         uses: actions/download-artifact@v3
         with:
-          name: Artefacto_prueba
+          name: prueba
           path: prueba.zip
       - uses: montudor/action-zip@v1
         with:
