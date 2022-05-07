@@ -12,13 +12,6 @@ on:
 jobs:
   configuracion:
     runs-on: ubuntu-latest
-    services:
-      portal-oficina01:
-        image: httpd:latest
-        ports:
-          - 8082:80
-        volumes: 
-          - /home/runner:/usr/local/apache2/htdocs/
     steps:
       - name: check out del repositorio
         uses: actions/checkout@v2
@@ -30,8 +23,36 @@ jobs:
         with:
           name: configuracion
           path: /home/runner/configuracion.html
-
-  Configuracion2:
+  construccion:
+    needs: configuracion
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+        
+      - name: ejecucion de la configuracion
+        run: sh ./buil_server.sh > /home/runner/construccion.html 
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: construccion
+          path: /home/runner/construccion.html
+  prueba:
+    needs: construccion
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out del repositorio
+        uses: actions/checkout@v2
+        
+      - name: ejecucion de la configuracion
+        run: sh ./test_server.sh > /home/runner/prueba.html 
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: prueba
+          path: /home/runner/prueba.html
+  publicar:
+    needs: prueba
     runs-on: ubuntu-latest
     services:
       portal-oficina01:
@@ -42,6 +63,26 @@ jobs:
           - /home/runner:/usr/local/apache2/htdocs/
 
     steps:
+      - name: descargar configuracion
+        uses: actions/donwload-artifact@v3
+        with:
+          name: Artefacto_informe
+          path: construccion.zip
+      - name: descargar construccion
+        uses: actions/donwload-artifact@v3
+        with:
+          name: Artefacto_construccion
+          path: construccion.zip
+      - name: descargar prueba
+        uses: actions/donwload-artifact@v3
+        with:
+          name: Artefacto_prueba
+          path: prueba.zip
+      - uses: montudor/action-zip@v1
+        with:
+          args: unzip -qq construccion.zip -d /home/runner
+      
+        
       - name: algo de html
         run: |
           cd  /home/runner
