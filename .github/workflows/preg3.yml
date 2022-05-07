@@ -90,12 +90,6 @@ jobs:
         with:
           name: configuracion
           path: /home/runner/configuracion
-      - name: descargar construccion
-        uses: actions/download-artifact@v3
-        with:
-          name: construccion
-          path: /home/runner/construccion
-      
       - name: descargar construccion1
         uses: actions/download-artifact@v3
         with:
