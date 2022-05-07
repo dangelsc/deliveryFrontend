@@ -2,7 +2,7 @@ name: PREGUNTA4
 on:
   push:
     branches:
-      - master
+      - master2
 jobs:
   PREG4:
     runs-on: ubuntu-latest
