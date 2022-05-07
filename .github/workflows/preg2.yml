@@ -80,19 +80,19 @@ jobs:
           path: /home/runner/prueba
           
       - name: verificar
-        run: ls  -la  /home/runner
+        run: |
+          mv /home/runner/configuracion/configuracion.html /home/runner/configuracion.html
+          mv /home/runner/construccion/construccion.html /home/runner/construccion.html
+          mv /home/runner/prueba/prueba.html /home/runner/prueba.html
+          echo "<h1>configuracion </h1><iframe src=configuracion.html><h1>construccion </h1><iframe src=construccion.html> <h1>prueba </h1><iframe src=prueba.html>"> /home/runner/index.html
         
-      - name: verificar confi
-        run: ls  -la  /home/runner/configuracion
-      - uses: montudor/action-zip@v1
-        with:
-          args: unzip -qq construccion -d /home/runner
+      
       
         
-      - name: algo de html
-        run: |
-          cd  /home/runner
-          echo "hola mundo" > index.html
+#      - name: algo de html
+#        run: |
+#          cd  /home/runner
+#          echo "hola mundo" > index.html
       - name: Acceder al portal 1
         run: ls -la /home/runner
 
