@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Memoria
         run: free -h
-      - name: carac2
-        run: mstat -s -S M
       - name: carac3
         run: ip ad
 
