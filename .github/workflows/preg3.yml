@@ -2,7 +2,7 @@ name: pregunta 2
 on:
   push:
     branches:
-      - master
+      - master2
 jobs:
   configuracion:
     runs-on: ubuntu-latest
