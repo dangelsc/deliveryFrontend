@@ -16,7 +16,7 @@ jobs:
      
     steps:
       - name: Creando pagina
-        run: echo "<?php echo phpingo(); ?>"> /home/runner/index2.php
+        run: echo "<?php echo phpinfo(); ?>"> /home/runner/index2.php
       - name: Acceder al server
         run: curl http://localhost:8082/index2.php
       - name: Informacion nodo
