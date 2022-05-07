@@ -11,12 +11,13 @@ jobs:
         image: php:8.0-apache
         ports:
           - 8082:80
-        workdir: /var/www/html
+        volumes : 
+          - /home/runner:/var/www/html
      
     steps:
       - name: Creando pagina
-        run: echo "<?php echo phpingo(); ?>"> /var/www/index.php
+        run: echo "<?php echo phpingo(); ?>"> /home/runner/index2.php
       - name: Acceder al server
-        run: curl http://localhost:8082
+        run: curl http://localhost:8082/index2.php
       - name: Informacion nodo
         run: ip add
