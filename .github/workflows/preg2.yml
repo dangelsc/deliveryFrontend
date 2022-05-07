@@ -67,7 +67,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Artefacto_informe
-          path: construccion.zip
+          path: configuracion.zip
       - name: descargar construccion
         uses: actions/download-artifact@v3
         with:
