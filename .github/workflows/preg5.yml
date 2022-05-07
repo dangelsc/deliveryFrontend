@@ -1,0 +1,19 @@
+name: preg 5
+on:
+  push:
+    branches:
+      - master
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    matrix:
+        cc: [run1, run2, run3]
+    steps:
+      - name: 
+        run: |
+          free -h
+          mstat -s -S M
+          ip ad
+
+          
+        
